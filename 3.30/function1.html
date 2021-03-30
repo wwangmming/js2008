@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // function fun1(){
+    //     console.log(a)
+    // }
+    // function fun2(){
+    //     var a=123
+    //     fun1()
+    // }
+    // fun2()
+
+    //闭包
+    var obj={
+        name:"zhangtian",
+        age:20,
+        email:"zhangtian@qq.com"
+    }
+    Object.defineProperty(obj,"sex",{
+        value:'男',
+        configurable:true,//是否能被delete删除
+        writable:true,//是否可以被覆盖写
+        enumerable:true//是否可枚举(枚举可理解为数组里面的遍历)
+    })
+    console.log(obj);
+</script>
