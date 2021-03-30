@@ -20,6 +20,24 @@
             console.log(111)
         }
         text1()
-      
-      
+    
+    // 函数参数
+        function add(a,b){
+            console.log(a+b)
+        }
+        add(3,5)
+    // 值传递
+        function add(num){
+            num++;
+        }
+        var a=123
+        add(a)
+        console.log(a)
+    // 引用传递
+        function add(num){
+            num[0]++
+        }
+        var arr=[11]
+        add(arr)
+        console.log(arr)
 </script>
