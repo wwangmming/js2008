@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //动物类
+    function animal(){
+
+    }
+    animal.prototype.name='dongwu'
+    animal.prototype.head='jige'
+    // animal=new animal()
+    // console.log(animal)
+
+    //猫类
+    function cat(){
+
+    }
+    cat.partotype=new animal()
+    cat.prototype.cat='maoke'
+    // cat=new cat()
+    // console.log(cat)
+
+    // 老虎类
+    function tiger(){
+
+    }
+    var pl=tiger.prototype=new cat()
+    var pl=new tiger()
+    console.log(pl)
+</script>
