@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // Object.create()	// 以实例（对象）为原型，创建新实例
+    var obj1={
+        name:"cname",
+        age:2
+    }
+    //创建的新对象 o2的原型为obj1
+    var o2=Object.create(obj1)
+    console.log(Object.getPrototypeOf(o2))
+    //创建一个光溜溜的对象
+    var o=Object.create(null)
+    console.log(o)
+
+
+
+</script>

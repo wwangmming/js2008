@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // Object.setPrototypeOf()	// 给对象设置原型
+    var obj1={
+        name:"cname",
+        age:0
+    }
+    var obj2={
+        name:"zhangtian",
+        age:11
+    }
+    var proto2=Object.getPrototypeOf(obj2)
+    console.log(proto2)
+    Object.setPrototypeOf(obj2,obj1)
+    console.log(Object.getPrototypeOf(obj2))
+</script>

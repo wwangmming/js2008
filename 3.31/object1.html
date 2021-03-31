@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // Object.getPrototypeOf()	//获取对象（的构造函数）的原型
+    //声明一个构造函数
+        function Person(){
+
+        }
+        // 通过构造函数创建一个对象
+        var pl=new Person()
+        //实现实例的原型
+        var proto=Object.getPrototypeOf(pl)
+        console.log(proto)
+        console.log(Person.prototype)
+        //实例的原型就是 实例的构造函数的原型
+        console.log(proto==Person.prototype)
+        //空对象的原型是object.prototype
+        Object.getPrototypeOf({})===Object.prototype
+        //object.prototype的原型是null
+        Object.getPrototypeOf(Object.prototype)===null
+</script>
