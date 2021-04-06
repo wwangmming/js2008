@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//属性简写
+    // let name="zhangteng"
+    // let age=20
+    // let say=()=>{return "Hello ES6"}
+    // //对象中直接使用变量
+    // let obj1={name,age,say}
+    // console.log(obj1.name)
+    // console.log(obj1.age)
+    // console.log(obj1.say())
+
+// 方法简写
+    // let obj0={
+    //     say:function(){
+    //         console.log(0000)
+    //     }
+    // }
+    // let obj1={
+    //     say(){
+    //         console.log(1111)
+    //     }
+    // }
+    // obj0.say()
+    // obj1.say()
+
+
+// //属性表达式
+//     //方法一
+//     obj.foo=true;
+
+//     //方法二
+//     obj['a'+'bc']=123;
+// //方法表达式
+//     let obj={
+//         ['h'+'ello'](){
+//             return 'h1';
+//         }
+//     };
+//     console.log(obj.hello)
+
+
+// 扩展运算符
+    // let person={
+    //     name:"zhangteng",
+    //     age:20,
+    //     sex:"N"
+    // }
+    // console.log(person)
+    // //将对象person中的所有可枚举属性拷贝到p1中
+    // let p1={...person}
+    // console.log(p1)
+
+    // let arr1=[11,22,33,44,55]
+    // let obj1={...arr1}
+    // console.log(arr1)
+    // console.log(obj1)
+
+
+// get方法和set方法
+        let obj1={
+            name:"zhangteng",
+            age:20,
+            get name(){
+                console.log("正在读取name属性")
+            },
+            set name(v){
+                console.log("新值为:",v)
+            }
+        }
+        obj1.name
+        obj1.name="lisi"
+</script>
