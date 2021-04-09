@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    $.ajax({
+        url:"http://vue.api.comcto.com/api/password1.php",
+        type:"get",
+        async:false,
+        success:function(d){
+            console.log("第一位:",d)
+        }
+    })
+    $.ajax({
+        url:"http://vue.api.comcto.com/api/password2.php",
+        type:"get",
+        async:false,
+        success:function(d){
+            console.log("第二位:",d)
+        }
+    })
+    $.ajax({
+        url:"http://vue.api.comcto.com/api/password3.php",
+        type:"get",
+        async:false,
+        success:function(d){
+            console.log("第三位:",d)
+        }
+    })
+    $.ajax({
+        url:"http://vue.api.comcto.com/api/password4.php",
+        type:"get",
+        async:false,
+        success:function(d){
+            console.log("第四位:",d)  
+        }
+    })
+</script>
