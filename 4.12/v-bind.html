@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="../vue.2.6.12.js"></script>
+</head>
+<body>
+<div id="app">
+	<img v-bind:src="erha" v-bind:title="mn">
+</div>
+</body>
+</html>
+<script>
+	new Vue({
+		el:"#app",
+		data:{
+			erha:"./1.jpg",
+			mn:"小宗"
+		}
+	})
+</script>
