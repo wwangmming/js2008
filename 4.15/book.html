@@ -69,35 +69,34 @@
         Vue.component("books-table",{
             props:['books'],
             template:` <table>
-        <thead>
-          <tr>
-            <th>编号</th>
-            <th>名称</th>
-            <th>时间</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr :key='item.id' v-for='(item,index) in books'>
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.time}}</td>
-            <td>
-              <a href="">修改</a>
-              <span>|</span>
-              <a href="" @click.prevent="del(index)">删除</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>`
+            <thead>
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr :key='item.id' v-for='(item,index) in books'>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.time}}</td>
+                <td>
+                <a href="">修改</a>
+                <span>|</span>
+                <a href="" @click.prevent="del(index)">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>`
         })
 
 
-
         /*
-          图书管理-添加图书
+        图书管理-添加图书
         */
-        const api_url = "http://vue.api.comcto.com/api/books.php"
+        const api_url = "http://vue.api.comcto.com/api/books.php?id="+userid
         var vm = new Vue({
             el: '#app',
             data: {
