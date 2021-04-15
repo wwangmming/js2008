@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.2.6.12.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+            <book-list v-bind:booklist="list"></book-list>
+        
+    </div>
+</body>
+</html>
+<script>
+
+    Vue.component("book-list",{
+        props:['booklist'],
+        template:`<ul><li v-for="item in booklist">{{item.id}}-{{item.name}}</li></ul>`
+    })
+
+    new Vue({
+        el:"#app",
+        data:{
+            list:[
+            {
+                id:1,
+                name:"辣条"
+            },
+            {
+                id:2,
+                name:"雪糕"
+            },
+            {
+                id:3,
+                name:"酸奶"
+            },
+            {
+                id:4,
+                name:"番茄"
+            },
+            ]
+        }
+    })
+</script>
