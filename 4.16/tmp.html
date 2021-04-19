@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.2.6.12.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <msg-test></msg-test>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component("button-counter",{
+        props:['counter'],
+        template:"<button>{{counter}}</button>"
+    })
+
+    const compa={
+        template:"<h3>{{msg}}</h3>"
+    }
+
+    new Vue({
+        el:"#app",
+        compa:{
+            "msg-test":compa
+        }
+    })
+</script>
