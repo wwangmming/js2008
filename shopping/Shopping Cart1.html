@@ -42,9 +42,10 @@
       border-top: 1px solid #ADD8E6;
     }
     .container .item img {
-      width: 45px;
-      height: 45px;
-      margin: 5px;
+      width: 102px;
+      height: 36px;
+      margin: 11px;
+      margin-left: -22px;
     }
     .container .item .name {
       position: absolute;
@@ -115,9 +116,9 @@
           <img src="img/a.jpg"/>
           <div class="name">{{item.goods_name}}</div>
           <div class="change">
-            <a href="">－</a>
-            <input type="text" class="num" :value="item.num"/>
-            <a href="">＋</a>
+            <a href="" @click.prevent="decrNum(item.id)">－</a>
+            <input type="text" class="num" :value="item.num" @blur="changeNum(item.id,$event)"/>
+            <a href="" @click.prevent="incrNum(item.id)">＋</a>
           </div>
           <div class="del" @click="del(item.id)">×</div>
         </div>
@@ -126,6 +127,18 @@
     methods: {
       del(id){    //删除购物车商品
         this.$emit("cart-del",id)   //通过自定义事件向父组件传值
+      },
+      changeNum(id,ev){     //修改购物车数量
+        this.$emit("change-num",{
+          id: id,
+          num: ev.target.value
+        })
+      },
+      incrNum(id){      //增加商品数量
+        this.$emit("incr-num",id)     //向父组件传值
+      },
+      decrNum(id){      //减少商品数量
+        this.$emit("decr-num",id)     //向父组件传值
       }
     }
   }
@@ -139,36 +152,34 @@
         <button>结算</button>
       </div>
     `,
-    computed: {
+    computed: {     //
       total(){
-        console.log(this.list)
         let m = 0
         this.list.forEach(function(v){
-          console.log()
           m += v.price * v.num
         })
         return m
       }
     }
   }
-
   Vue.component("my-cart",{
     data(){
       return {
         username : "小张",
         list: [
-          {"id":1,"goods_id":1234,"goods_name":"IphoneX","price":8888,"num":1,"userid":1234},
-          {"id":2,"goods_id":2345,"goods_name":"Iphone8","price":9999,"num":1,"userid":1234},
-          {"id":3,"goods_id":5432,"goods_name":"Iphone7","price":7777,"num":1,"userid":1234},
-          {"id":4,"goods_id":6789,"goods_name":"Iphone6","price":6666,"num":1,"userid":1234},
-          {"id":5,"goods_id":8765,"goods_name":"Iphone5","price":5555,"num":1,"userid":1234}
+          {"id":101,"goods_id":1234,"goods_name":"IphoneX","price":8888,"num":3,"userid":1234},
+          {"id":102,"goods_id":2345,"goods_name":"Iphone8","price":9999,"num":1,"userid":1234},
+          {"id":103,"goods_id":5432,"goods_name":"Iphone7","price":7777,"num":2,"userid":1234},
+          {"id":104,"goods_id":6789,"goods_name":"Iphone6","price":6666,"num":1,"userid":1234},
+          {"id":105,"goods_id":8765,"goods_name":"Iphone5","price":5555,"num":1,"userid":1234}
         ],
       }
     },
     template: `
       <div class="cart">
         <cart-title :username="username"></cart-title>
-        <cart-list :list="list" @cart-del="cartDel($event)"></cart-list>
+        <cart-list :list="list" @cart-del="cartDel($event)" @change-num="changeCartNum($event)"
+                   @incr-num="incrCartNum($event)" @decr-num="decrCartNum($event)"></cart-list>
         <cart-footer :list="list"></cart-footer>
       </div>
     `,
@@ -182,6 +193,33 @@
         this.list.forEach((val,i)=>{    // 遍历列表，判断如果当前商品id与要删除的id一致，则删除数组中当前商品
           if(val.id==ev){
             this.list.splice(i,1)       // 数组删除元素 使用 splice(开始的索引,要删除的个数)
+          }
+        })
+      },
+      changeCartNum(args){    //根据子组件传过来的值 修改list中数据
+        this.list.some((v,k)=>{
+          if(v.id==args.id){
+            item.num = args.num
+            return true
+          }
+        })
+      },
+      incrCartNum(id){
+        this.list.some((v,k)=>{
+          if(v.id==id){
+            v.num++
+            return true
+          }
+        })
+      },
+      decrCartNum(id){
+        this.list.some((v,k)=>{
+          if(v.id==id){
+            if(v.num==0){
+              return true
+            }
+            v.num--
+            return true
           }
         })
       }
